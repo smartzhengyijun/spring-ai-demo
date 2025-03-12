@@ -2,6 +2,7 @@ package com.cachezheng.ai.springaidemo.controller;
 
 import com.cachezheng.ai.springaidemo.dto.Person;
 import com.cachezheng.ai.springaidemo.tool.DateTimeTools;
+import com.cachezheng.ai.springaidemo.tool.WeatherTools;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -45,10 +46,16 @@ public class FCController {
         return person.toString();
     }
 
+    /**
+     * function calling
+     * eg：请问北京现在几点以及天气怎么样？
+     * @param message
+     * @return
+     */
     @RequestMapping(value = "/toolCalling", produces = "text/html;charset=UTF-8")
     public String toolCalling (@RequestParam("message") String message) {
 
-        ToolCallback[] dateTimeTools = ToolCallbacks.from(new DateTimeTools());
+        ToolCallback[] dateTimeTools = ToolCallbacks.from(new DateTimeTools(),new WeatherTools());
         Prompt prompt = new Prompt(message,
                 OpenAiChatOptions.builder()
                         .model(OpenAiApi.ChatModel.GPT_4_O_MINI)
