@@ -1,27 +1,27 @@
+spring:
+  ai:
+    openai:
+      api-key:
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+          temperature: 0.7
+      embedding:
+        enabled: false
+
+
 #spring:
 #  ai:
 #    openai:
 #      api-key:
-#      base-url: https://api.deepseek.com
+#      base-url: https://api.openai.com
 #      chat:
 #        options:
-#          model: deepseek-reasoner
+#          model: gpt-4o-mini
 #          temperature: 0.7
 #      embedding:
 #        enabled: false
-
-
-spring:
-  ai:
-    openai:
-      base-url: https://api.openai.com
-      api-key:
-      chat:
-        options:
-          model: gpt-4o-mini
-          temperature: 0.7
-      embedding:
-        enabled: false
 
 
     ollama:
@@ -30,3 +30,13 @@ spring:
         options:
           model: deepseek-r1:7b
 
+    mcp:
+      client:
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
+          debug: true
+
+        sse:
+          connections:
+            server:
+              url: http://localhost:8090

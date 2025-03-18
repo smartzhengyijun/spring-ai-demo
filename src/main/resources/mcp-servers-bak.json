@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/cache/Desktop",
+        "/Users/cache/Downloads"
+      ]
+    },
+    "spring-ai-mcpserver": {
+      "command": "java",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dspring.main.web-application-type=none",
+        "-Dlogging.pattern.console=",
+        "-jar",
+        "/Users/cache/study/git-project/spring-ai-mcpserver/target/spring-ai-mcpserver-0.0.1-SNAPSHOT.jar"
+      ]
+    }
+
+  }
+}
