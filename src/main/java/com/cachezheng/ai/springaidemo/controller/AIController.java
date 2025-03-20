@@ -140,7 +140,6 @@ class AIController {
                 new Media(MimeTypeUtils.IMAGE_PNG, imageResource));
         ChatResponse imageResponse = openAiChatModel.call(new Prompt(imageMessage,
                 OpenAiChatOptions.builder().model(OpenAiApi.ChatModel.GPT_4_O.getValue()).build()));
-
         return imageResponse.getResult().getOutput().getText();
     }
 
